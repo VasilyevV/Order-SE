@@ -1,9 +1,4 @@
 ﻿using OrderSE.Data;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OrderSE.BL
 {
@@ -15,20 +10,6 @@ namespace OrderSE.BL
             _repositary = repositary;
         }
 
-        public ClientEntity GenerateClient()
-        {
-            ClientEntity client  = new ClientEntity();
-
-            client.Number = _repositary.GetNumber();
-            client.Name = _repositary.GetName();
-            client.Amount = _repositary.GetAmount();
-            client.AmountInWords = NumberToWords.ToWords((int)client.Amount);
-            client.VAT = Math.Round(client.Amount - client.Amount/1.2, 2);
-            client.Base = _repositary.GetBase();
-            client.OrderDate = DateTime.Now;
-
-            return client;
-        }
 
         public Dictionary<string, string> GenerateDataOrder(ClientEntity client)
         {
@@ -41,7 +22,7 @@ namespace OrderSE.BL
             string[] money = string.Format("{0:0.00}", client.Amount).Split(',');
             dataOrder.Add("[Money0]", money[0]);
             dataOrder.Add("[Money1]", money[1]);
-            dataOrder.Add("[Amount]", client.Amount.ToString());
+            dataOrder.Add("[Amount]", string.Format("{0:0.00}", client.Amount));
             
             dataOrder.Add("[AmountInWords]", client.AmountInWords);
 
@@ -51,7 +32,7 @@ namespace OrderSE.BL
             dataOrder.Add("[Date2]", Data[2]);
             dataOrder.Add("[Date]", string.Format("{0:d}", client.OrderDate));
 
-            dataOrder.Add("[VAT]", client.VAT.ToString());
+            dataOrder.Add("[VAT]", string.Format("{0:0.00}", client.VAT));  
 
             return dataOrder;
         }

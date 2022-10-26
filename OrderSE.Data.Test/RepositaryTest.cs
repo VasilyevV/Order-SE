@@ -1,15 +1,13 @@
-﻿using OrderSE.Data;
+﻿using NUnit.Framework;
+using OrderSE.Data;
 
-namespace OrderSE.BL.Test
+namespace OrderSE.Data.Test
 {
-    public class RepositaryMock : IRepositary
+    [TestFixture]
+    public class RepositaryTest
     {
-        public string GetBase()
-        {
-            return "Авансовый отчет";
-        }
-
-        public List<ClientEntity> Read(string path)
+        [Test]
+        public void Read_test()
         {
             var client = new ClientEntity()
             {
@@ -23,7 +21,8 @@ namespace OrderSE.BL.Test
             };
             var clientsList = new List<ClientEntity>();
             clientsList.Add(client);
-            return clientsList;
+            var expected_clientsList = Repositary.Read()
         }
+
     }
 }

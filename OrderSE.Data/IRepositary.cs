@@ -1,16 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace OrderSE.Data
+﻿namespace OrderSE.Data
 {
     public interface IRepositary
     {
-        int GetNumber();
-        string GetName();
-        double GetAmount();
+        List<ClientEntity> Read(string path);
         string GetBase();
     }
 }
