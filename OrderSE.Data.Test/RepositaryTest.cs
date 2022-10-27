@@ -7,21 +7,14 @@ namespace OrderSE.Data.Test
     public class RepositaryTest
     {
         [Test]
-        public void Read_test()
+        public void NumberToWordsTest()
         {
-            var client = new ClientEntity()
-            {
-                Number = 3,
-                Name = "Мехатрон Сервис",
-                Amount = 30000.00,
-                AmountInWords = "тридцать тысяч",
-                VAT = 5000.00,
-                Base = "Авансовый отчет",
-                OrderDate = new DateTime(2022, 10, 19)
-            };
-            var clientsList = new List<ClientEntity>();
-            clientsList.Add(client);
-            var expected_clientsList = Repositary.Read()
+            var number = 156.256;
+            var expected_result = "сто пятьдесят шесть";
+
+            string result = NumberToWords.ToWords(number);
+
+            Assert.That(result, Is.EqualTo(expected_result));
         }
 
     }
