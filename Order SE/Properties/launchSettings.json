@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "OrderSE": {
+      "commandName": "Project",
+      "commandLineArgs": "\"C:\\dotnet\\Order SE\\Order SE\\Files\\InputFile.xlsx\"\r\n\"D:\\IncomingOrders\\Output\\Order\""
+    }
+  }
+}
