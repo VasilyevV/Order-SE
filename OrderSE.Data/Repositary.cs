@@ -21,7 +21,7 @@ namespace OrderSE.Data
                 client.Number = Convert.ToInt16(workSheet.Cells[i, "A"].Value);
                 client.Name = workSheet.Cells[i, "B"].Value.ToString();
                 client.Amount = Convert.ToDouble(workSheet.Cells[i, "C"].Value);
-                client.AmountInWords = NumberToWords.ToWords((int)client.Amount);
+                client.AmountInWords = Translator.Compilation((int)client.Amount);
                 client.VAT = Math.Round(client.Amount - client.Amount / 1.2, 2);
                 client.Base = GetBase();
                 client.OrderDate = DateTime.Now;

@@ -12,7 +12,7 @@ namespace OrderSE.Data.Test
             var number = 156;
             var expected_result = "סעמ ןÿעüהוסÿע רוסעü";
 
-            string result = NumberToWords.ToWords(number);
+            string result = Translator.Compilation(number);
 
             Assert.That(result, Is.EqualTo(expected_result));
         }
